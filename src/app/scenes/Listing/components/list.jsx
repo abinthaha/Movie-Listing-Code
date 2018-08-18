@@ -62,8 +62,6 @@ class ListComponent extends Component {
 		})
 	}
 	render() {
-		console.log(posterImages);
-
 		const itemListing = this.state.movieList.map((item, index) => {
 			let imgSrc =  posterImages[item["poster-image"]] ? posterImages[item["poster-image"]] : posterImages["noPosterImg.png"];
 			return (

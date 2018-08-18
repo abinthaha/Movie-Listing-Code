@@ -1,4 +1,3 @@
-import { handle } from 'redux-pack';
 import {
     LOAD_LIST_FINISHED, LOAD_LIST_STARTED, LOAD_LIST_ERROR
 } from './constants';
