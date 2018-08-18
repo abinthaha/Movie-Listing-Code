@@ -1,0 +1,29 @@
+@import "./variables";
+@import "./mixins";
+
+body {
+	margin: 0;
+	font-family: 'Titillium Web', sans-serif;
+	background-color: $black;
+	@include font-size(16px);
+	@include media-points(mobile) {
+		@include font-size(15px);
+	}
+}
+
+//To reset browser CSS, having border-box property to the html elements
+div, section, header, footer, article, main, p, span, i, a, h1, h2, h3, h4, h5, h6, ul, li {
+	box-sizing: border-box;
+}
+
+
+//Media query for container - To have space at both the sides
+.container {
+	padding: 0 10%;
+	@include media-points(mobile) {
+		padding: 0 1%;
+	}
+	@include media-points(tablet) {
+		padding: 0 8%;
+	}
+}
