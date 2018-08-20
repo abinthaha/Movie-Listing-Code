@@ -14,7 +14,12 @@ $medium: 400;
 $bold: 700;
 
 // Media Query
+$low_res_mobile: "(max-width: 380px)";
+$med_mobile: "(min-width: 381px) and (max-width: 476px)";
+$high_mobile: "(min-width: 476px) and (max-width: 620px)";
 $mobile: "(max-width: 640px)";
+$min_tablet: "(min-width: 640px) and (max-width: 830px)";
+$med_tablet: "(min-width: 831px) and (max-width: 1023px)";
 $tablet: "(min-width: 641px) and (max-width: 1023px)";
 
 //Transition

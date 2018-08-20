@@ -113,23 +113,33 @@
 			    	border-radius: 5px;
 			    }
 			    &::after {
-			    	content: 'View Details';
+				    content: 'View Details';
 				    display: inline-block;
 				    position: absolute;
 				    z-index: 1;
-				    left: 27px;
-				    right: auto;
-				    top: auto;
+				    left: 0;
+				    right: 0;
 				    bottom: -30px;
 				    background-color: $hover_green;
 				    padding: 6px 14px;
 				    color: $white;
 				    border-radius: 5px;
 				    font-weight: bold;
-				    width: 90px;
+				    width: 80px;
+				    font-size: 0.9rem;
 				    text-align: center;
 				    opacity: 0;
-				    transition: $ease_fast;
+				    transition: all 0.3s ease;
+				    height: 25px;
+				    margin: auto;
+				    @media #{$low_res_mobile} {
+				    	display: none; 
+				    }
+				    @media #{$mobile} {
+				    	font-size: 0.7rem;
+				    	width: 60px;
+				    	height: 18px
+				    }
 			    }
 			    &:hover {
 			    	&::before {
@@ -145,7 +155,7 @@
 			    	}
 			    	&::after {
 			    		opacity: 1;
-			    		bottom: 30px;
+			    		bottom: 20px;
 			    	}
 			    	& + .movie-name {
 						white-space: initial;
@@ -154,11 +164,11 @@
 					    text-align: center;
 				        position: absolute;
 				        z-index: 1;
-					    top: 30px;
+					    top: 10px;
 					    left: 0;
 					    right: 0;
 					    pointer-events: none;
-					    padding: 0 30px;
+					    padding: 0 10px;
 					    bottom: auto;
 			    	}
 			    }
@@ -172,16 +182,54 @@
                 	height: 255px;
 	             }
             }
-            
-            @media #{$mobile} {
-                width: 170px;
-                height: 260px;
+
+            @media #{$min_tablet} {
+                width: 165px;
+                height: 205px;
                 .movie-poster-wrapper {
-                	width: 140px;
-                	height: 230px;
+                	width: 125px;
+                	height: 175px;
 	             }
             }
 
+            @media #{$mobile} {
+                width: 170px;
+    			height: 250px;
+                .movie-poster-wrapper {
+                	width: 150px;
+                	height: 220px;
+	             }
+            }
+
+            @media #{$high_mobile} {
+                width: 140px;
+    			height: 220px;
+			    padding: 0;
+                .movie-poster-wrapper {
+                	width: 130px;
+                	height: 195px;
+	             }
+            }
+            
+            @media #{$med_mobile} {
+                width: 105px;
+    			height: 170px;
+			    padding: 0;
+                .movie-poster-wrapper {
+                	width: 100px;
+                	height: 140px;
+	             }
+            }
+
+            @media #{$low_res_mobile} {
+                width: 85px;
+			    height: 155px;
+			    padding: 0;
+                .movie-poster-wrapper {
+                	width: 83px;
+                	height: 125px;
+	             }
+            }
 		}
 	}
 }

@@ -48,26 +48,13 @@ class ListComponent extends Component {
 		})
 	}
 
-	//The case where an image path is broken, we will need to show a default image in that case. This method handles the same
-	errorImg(movie) {
-		let { movieList } = this.state;
-		movieList = movieList.map( item => {
-			if(item.name === movie.name && item["poster-image"] === movie["poster-image"])
-				item["poster-image"] = this.state.noPosterName;
-			return item;
-		})
-		this.setState({
-			...this.state,
-			movieList
-		})
-	}
 	render() {
 		const itemListing = this.state.movieList.map((item, index) => {
-			let imgSrc =  posterImages[item["poster-image"]] ? posterImages[item["poster-image"]] : posterImages["noPosterImg.png"];
+			let imgSrc =  posterImages[item["poster-image"]] ? posterImages[item["poster-image"]] : posterImages["noPosterImg.png"]; //If image URL not found, will be replaced with the default image URL
 			return (
 				<li key={index} className='each-movie not-selectable'>
 					<span className='movie-poster-wrapper not-selectable'>
-						<img src={imgSrc} onError={(e) => this.errorImg(item)} />
+						<img src={imgSrc} />
 					</span>
 					<Heading 
 						title={item.name}
