@@ -14,7 +14,6 @@ class ListComponent extends Component {
 			movieList: []
 		}
 		this.setMovieList = this.setMovieList.bind(this);
-		this.errorImg = this.errorImg.bind(this);
 		this.getPosterImages = this.getPosterImages.bind(this);
 	}
 
@@ -52,16 +51,16 @@ class ListComponent extends Component {
 		const itemListing = this.state.movieList.map((item, index) => {
 			let imgSrc =  posterImages[item["poster-image"]] ? posterImages[item["poster-image"]] : posterImages["noPosterImg.png"]; //If image URL not found, will be replaced with the default image URL
 			return (
-				<li key={index} className='each-movie not-selectable'>
+				<li key={index} className={'each-movie not-selectable ' + (index === this.state.movieList.length - 1 ? 'last-node' : '')}>
 					<span className='movie-poster-wrapper not-selectable'>
 						<img src={imgSrc} />
+						<Heading 
+							title={item.name}
+							className='movie-name not-selectable'
+							shouldShowTitle
+							type='5' 
+						/>
 					</span>
-					<Heading 
-						title={item.name}
-						className='movie-name not-selectable'
-						shouldShowTitle
-						type='5' 
-					/>
 				</li>
 			)
 		})

@@ -39,7 +39,7 @@ class Listing extends Component {
 			const lastLi = document.querySelector('.movie-list-wrapper > li:last-child') //To find the last element of the list
 			const lastLiOffset = lastLi.offsetTop + lastLi.clientHeight;
 			const pageOffset = window.pageYOffset + window.innerHeight; 
-			var bottomOffset = 20; //Number of pixels from bottom of the page which determines when to make the next api call
+			var bottomOffset = window.innerHeight * 0.5; //Number of pixels from bottom of the page which determines when to make the next api call
 			if(pageOffset > lastLiOffset - bottomOffset) {
 				this.loadMore();
 			}
@@ -106,6 +106,7 @@ class Listing extends Component {
 				/>
 				<ListComponent 
 					movieList={this.state.filteredData} 
+					isListLoading={this.state.scrolling}
 				/>
 			</section>
 		)
